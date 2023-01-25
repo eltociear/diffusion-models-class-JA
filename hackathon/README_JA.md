@@ -34,7 +34,7 @@ DreamBoothハッカソンへようこそ! このイベントは、Stable Diffusi
 
 ## 評価＆リーダーボード
 
-モデルカードに`dreambooth-hackathon`タグを付けて、1つ以上のDreamBoothモデルをHubにプッシュすると、賞品がもらえます（[例](https://huggingface.co/lewtun/ccorgi-dog/blob/main/README.md#L9))。これは[DreamBooth notebook](https://github.com/huggingface/diffusion-models-class/blob/main/hackathon/dreambooth.ipynb)で自動的に作成されますが、独自のスクリプトを実行している場合は追加する必要があります。
+モデルカードに `dreambooth-hackathon` タグを付けて、1つ以上の DreamBooth モデルを Hub にプッシュすると、賞品がもらえます（[例](https://huggingface.co/lewtun/ccorgi-dog/blob/main/README.md#L9))。これは [DreamBooth notebook](https://github.com/huggingface/diffusion-models-class/blob/main/hackathon/dreambooth.ipynb) で自動的に作成されますが、独自のスクリプトを実行している場合は追加する必要があります。
 
 モデルはいいね！の数によって評価され、ハッカソンのリーダーボードで自分のモデルの順位を確認することができます:
 
@@ -43,7 +43,7 @@ DreamBoothハッカソンへようこそ! このイベントは、Stable Diffusi
 ## タイムライン
 
 * **December 21, 2022** - 開始日
-* **December 31, 2022** - Colab Proの登録締切
+* **December 31, 2022** - Colab Pro の登録締切
 * **January 22, 2023** - 最終投稿締切（リーダーボード締切）
 * **January 23-27, 2023** - 各テーマの受賞者発表
 
@@ -55,22 +55,22 @@ DreamBoothハッカソンへようこそ! このイベントは、Stable Diffusi
 
 **1位受賞者**
 
-* [Hugging Face Pro subscription](https://huggingface.co/pricing)1年分、または[Hugging Face merch store](https://store.huggingface.co/)の100ドル券をプレゼント
+* [Hugging Face Pro subscription](https://huggingface.co/pricing)1年分、または [Hugging Face merch store](https://store.huggingface.co/) の100ドル券をプレゼント
 
 **2位受賞者**
 
-* [_TransformersとのNLP_](https://transformersbook.com/)書籍、または[Hugging Face merch store](https://store.huggingface.co/)の50ドル券をプレゼント
+* [_TransformersとのNLP_](https://transformersbook.com/)書籍、または [Hugging Face merch store](https://store.huggingface.co/) の50ドル券をプレゼント
 
 **3位受賞者**
 
-* [Hugging Face Pro subscription](https://huggingface.co/pricing)一ヶ月分、または[Hugging Face merch store](https://store.huggingface.co/)の15ドル券をプレゼント
+* [Hugging Face Pro subscription](https://huggingface.co/pricing)一ヶ月分、または [Hugging Face merch store](https://store.huggingface.co/) の15ドル券をプレゼント
 
-また、ハッカソン 🔥にDreamBoothモデルを1台以上提出した参加者全員に、**修了証**を提供します。
+また、ハッカソン 🔥に DreamBooth モデルを1台以上提出した参加者全員に、**修了証**を提供します。
 
 
 ## 計算
 
-Google Colabは本イベントに協賛し、参加者100名（ランダムに選出）に料金Colab Proクレジットを提供します。クレジットの提供は2023年1月を予定しており、12月31日までにご登録をお願いします。お申し込みは、[こちらのフォーム](https://docs.google.com/forms/d/e/1FAIpQLSeE_js5bxq_a_nFTglbZbQqjd6KNDD9r4YRg42kDFGSb5aoYQ/viewform)からお願いします。
+Google Colab は本イベントに協賛し、参加者100名（ランダムに選出）に料金 Colab Pro クレジットを提供します。クレジットの提供は2023年1月を予定しており、12月31日までにご登録をお願いします。お申し込みは、[こちらのフォーム](https://docs.google.com/forms/d/e/1FAIpQLSeE_js5bxq_a_nFTglbZbQqjd6KNDD9r4YRg42kDFGSb5aoYQ/viewform)からお願いします。
 
 ![](https://lh3.googleusercontent.com/-l6dUgmPOKMM/X7w3nNn3OpI/AAAAAAAALAg/74fTRiPqikMURTD_Dn4PzAVADey2_6lLwCNcBGAsYHQ/s400/colab-logo-128x128.png)
 
@@ -82,5 +82,5 @@ Google Colabは本イベントに協賛し、参加者100名（ランダムに�
 
 ### その他、テキスト反転のようなファインチューニングは可能ですか？
 
-もちろんです このハッカソンはDreamBoothにフォーカスしていますが、他のファインチューニングテクニックを試すことも歓迎（推奨）されます。また、フレームワークやコード、サービスなど、コミュニティが喜ぶようなモデルを作るのに役立つものであれば、何でも使っていただいて構いません 🥰。
+もちろんです このハッカソンは DreamBooth にフォーカスしていますが、他のファインチューニングテクニックを試すことも歓迎（推奨）されます。また、フレームワークやコード、サービスなど、コミュニティが喜ぶようなモデルを作るのに役立つものであれば、何でも使っていただいて構いません🥰。
 

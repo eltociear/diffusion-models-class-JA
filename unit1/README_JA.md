@@ -15,7 +15,7 @@ Hugging Face Diffusion モデルコースのユニット1へようこそ!この�
 - (オプション) [このビデオ](https://www.youtube.com/watch?v=09o5cv6u76c)で、このユニットの教材をざっと見てみてください。
 
 
-:loudspeaker: [Discord](https://huggingface.co/join/discord)に参加するのを忘れないでください。ここでは、`#diffusion-models-class`チャンネルで教材について議論したり、作ったものを共有したりすることができます。
+:loudspeaker: [Discord](https://huggingface.co/join/discord) に参加するのを忘れないでください。ここでは、 `#diffusion-models-class` チャンネルで教材について議論したり、作ったものを共有したりすることができます。
 
 ## Diffusion モデルとは何か？
 

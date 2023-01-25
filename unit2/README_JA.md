@@ -1,10 +1,10 @@
 # ユニット2：ファインチューニング、ガイダンス、コンディショニング
 
-Hugging Face Diffusionモデルコースのユニット2へようこそ! このユニットでは、事前にトレーニングされたdiffusionモデルを新しい方法で使用し、適応させる方法を学びます。 また、生成プロセスを制御するために、**コンディショニング**として追加の入力を受けるdiffusionモデルをどのように作成するかもご覧いただきます。
+Hugging Face Diffusion モデルコースのユニット2へようこそ! このユニットでは、事前にトレーニングされた diffusion モデルを新しい方法で使用し、適応させる方法を学びます。また、生成プロセスを制御するために、**コンディショニング** として追加の入力を受ける diffusion モデルをどのように作成するかもご覧いただきます。
 
 ## このユニットを開始する :rocket:
 
-Here are the steps for this unit:
+ユニットの手順は以下の通りです:
 
 - Make sure you've [signed up for this course](https://huggingface.us17.list-manage.com/subscribe?u=7f57e683fa28b51bfc493d048&id=ef963b4162) so that you can be notified when new material is released
 - Read through the material below for an overview of the key ideas of this unit
@@ -18,23 +18,23 @@ Here are the steps for this unit:
 
 ## ファインチューニング
 
-As you may have seen in Unit 1, training diffusion models from scratch can be time-consuming! Especially as we push to higher resolutions, the time and data required to train a model from scratch can become impractical. Fortunately, there is a solution: begin with a model that has already been trained! This way we start from a model that has already learned to denoise images of some kind, and the hope is that this provides a better starting point than beginning from a randomly initialized model.
+ユニット1でご覧になったように、 diffusion モデルをゼロからトレーニングするのは時間がかかるものです。特に高解像度になればなるほど、ゼロからモデルをトレーニングするために必要な時間とデータは現実的ではなくなります。幸いにも、解決策があります：すでにトレーニングされたモデルから始めるのです。この方法では、ある種の画像のノイズ除去をすでに学習したモデルから始めます。これは、ランダムに初期化されたモデルから始めるよりも良い出発点になることを期待しています。
 
 ![Example images generated with a model trained on LSUN Bedrooms and fine-tuned for 500 steps on WikiArt](https://api.wandb.ai/files/johnowhitaker/dm_finetune/2upaa341/media/images/Sample%20generations_501_d980e7fe082aec0dfc49.png)
 
-Fine-tuning typically works best if the new data somewhat resembles the base model's original training data (for example, beginning with a model trained on faces is probably a good idea if you're trying to generate cartoon faces) but surprisingly the benefits persist even if the domain is changed quite drastically. The image above is generated from a [model trained on the LSUN Bedrooms dataset](https://huggingface.co/google/ddpm-bedroom-256) and fine-tuned for 500 steps on [the WikiArt dataset](https://huggingface.co/datasets/huggan/wikiart). The [training script](https://github.com/huggingface/diffusion-models-class/blob/main/unit2/finetune_model.py) is included for reference alongside the notebooks for this unit.
+ファインチューニングは通常、新しいデータがベースモデルの元の学習データにある程度似ている場合にうまくいきますが（例えば、アニメの顔を生成しようとする場合、顔で学習したモデルから始めるとよいでしょう）、驚くことに、ドメインが大幅に変更された場合でも、その効果は持続するのです。上の画像は、 [LSUN Bedrooms データセットで学習したモデル](https://huggingface.co/google/ddpm-bedroom-256)と [WikiArt データセット](https://huggingface.co/datasets/huggan/wikiart)で500ステップのファインチューニングを行ったものです。[学習スクリプト](https://github.com/huggingface/diffusion-models-class/blob/main/unit2/finetune_model.py)は、このユニットのノートブックと一緒に参考として添付されています。
 
 ## ガイダンス
 
-Unconditional models don't give much control over what is generated. We can train a conditional model (more on that in the next section) that takes additional inputs to help steer the generation process, but what if we already have a trained unconditional model we'd like to use? Enter guidance, a process by which the model predictions at each step in the generation process are evaluated against some guidance function and modified such that the final generated image is more to our liking.
+無条件モデルは生成されるものをあまりコントロールできない。条件付きモデル（詳しくは次のセクションで説明します）をトレーニングして、追加の入力を受け取り、生成プロセスをコントロールすることはできますが、すでにトレーニングされた無条件モデルがある場合はどうでしょうか？ガイダンスとは、生成プロセスの各ステップにおけるモデルの予測値を何らかのガイダンス関数に照らして評価し、最終的に生成される画像がより私たちの好みに合うように修正するプロセスです。
 
 ![guidance example image](guidance_eg.png)
 
-This guidance function can be almost anything, making this a powerful technique! In the notebook, we build up from a simple example (controlling the color, as illustrated in the example output above) to one utilizing a powerful pre-trained model called CLIP which lets us guide generation based on a text description.
+このガイダンス関数は、ほとんどどんなものでも可能であり、強力な技法となります。このノートでは、単純な例（上の出力例のように色を制御する）から、 CLIP と呼ばれる事前に学習させた強力なモデルを利用し、テキストの記述に基づいて生成を誘導する例まで構築しています。
 
 ## コンディショニング
 
-Guidance is a great way to get some additional mileage from an unconditional diffusion model, but if we have additional information (such as a class label or an image caption) available during training then we can also feed this to the model for it to use as it makes its predictions. In doing so, we create a **conditional** model, which we can control at inference time by controlling what is fed in as conditioning. The notebook shows an example of a class-conditioned model which learns to generate images according to a class label.
+ガイダンスは無条件 diffusion モデルからいくつかのマイルを得るための素晴らしい方法ですが、もし学習中に利用可能な追加情報（クラスラベルや画像のキャプションなど）があれば、それをモデルに与え、予測を行う際に利用することも可能です。そうすることで、 **条件付き** モデルを作成し、推論時に条件付けとして入力されるものを制御することができます。ノートブックには、クラスラベルに従って画像を生成することを学習するクラス条件付きモデルの例が示されています。
 
 ![conditioning example](conditional_digit_generation.png)
 
@@ -69,4 +69,4 @@ Following the examples in the _**Fine-tuning and Guidance**_ notebook, fine-tune
 
 [eDiffi: Text-to-Image Diffusion Models with an Ensemble of Expert Denoisers](https://arxiv.org/abs/2211.01324) - Shows how many different kinds of conditioning can be used together to give even more control over the kinds of samples generated
 
-Found more great resources? Let us know and we'll add them to this list.
+もっと素晴らしいリソースがありますか？このリストに追加します。

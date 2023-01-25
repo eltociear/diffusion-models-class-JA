@@ -1,10 +1,10 @@
 # ユニット3：Stable Diffusion
 
-Welcome to Unit 3 of the Hugging Face Diffusion Models Course! In this unit you will meet a powerful diffusion model called Stable Diffusion (SD) and explore what it can do.
+Hugging Face Diffusion モデルコースのユニット3へようこそ！このユニットでは、Stable Diffusion (SD) と呼ばれる強力な diffusion モデルに出会い、それができることを探ります。
 
 ## このユニットを開始する :rocket:
 
-Here are the steps for this unit:
+ユニットの手順は以下の通りです:
 
 - Make sure you've [signed up for this course](https://huggingface.us17.list-manage.com/subscribe?u=7f57e683fa28b51bfc493d048&id=ef963b4162) so that you can be notified when new material is released
 - Read through the material below for an overview of the key ideas of this unit
@@ -46,7 +46,7 @@ For this to work, we need to create a numeric representation of the text that ca
 
 OK, so how do we actually feed this conditioning information into the UNet for it to use as it makes predictions? The answer is something called cross-attention. Scattered throughout the UNet are cross-attention layers. Each spatial location in the UNet can 'attend' to different tokens in the text conditioning, bringing in relevant information from the prompt. The diagram above shows how this text conditioning (as well as timestep-based conditioning) is fed in at different points. As you can see, at every level the UNet has ample opportunity to make use of this conditioning!
 
-## Classifier-freeガイダンス
+## Classifier-free ガイダンス
 
 It turns out that even with all of the effort put into making the text conditioning as useful as possible, the model still tends to default to relying mostly on the noisy input image rather than the prompt when making its predictions. In a way, this makes sense - many captions are only loosely related to their associated images and so the model learns not to rely too heavily on the descriptions! However, this is undesirable when it comes time to generate new images - if the model doesn't follow the prompt then we may get images out that don't relate to our description at all.
 
@@ -64,7 +64,7 @@ _Depth-conditioned SD is able to generate different images with the same overall
 
 In a similar manner, we can feed in a low-resolution image as the conditioning and have the model generate the high-resolution version ([as used by the Stable Diffusion Upscaler](https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler)). Finally, we can feed in a mask showing a region of the image to be re-generated as part of the 'in-painting' task, where the non-mask regions need to stay intact while new content is generated for the masked area.
 
-## DreamBoothでのファインチューニング
+## DreamBooth でのファインチューニング
 
 ![dreambooth diagram](https://dreambooth.github.io/DreamBooth_files/teaser_static.jpg)
 _Image from the [dreambooth project page](https://dreambooth.github.io/) based on the Imagen model_
@@ -100,4 +100,4 @@ Follow the instructions in the **DreamBooth** notebook to train your own model f
 
 - [GLIDE: Towards Photorealistic Image Generation and Editing with Text-Guided Diffusion Models](https://arxiv.org/abs/2112.10741) an early paper demonstrating text conditioning and CFG
 
-Found more great resources? Let us know and we'll add them to this list.
+もっと素晴らしいリソースがありますか？このリストに追加します。
