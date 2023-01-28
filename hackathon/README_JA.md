@@ -1,14 +1,14 @@
 # DreamBooth ハッカソン 🏆
 
-DreamBoothハッカソンへようこそ! このイベントは、Stable Diffusionモデルをあなたの画像で微調整することで、 **パーソナライズするコミュニティイベントです**。そのためには、[_DreamBooth_](https://arxiv.org/abs/2208.12242)という強力なテクニックを使います。このテクニックを使うと、モデルの出力領域に被験者（例えば、ペットやお気に入りの料理）を埋め込み、プロンプトに _ユニーク識別子_ をつけて合成することができるようになります。
+DreamBooth ハッカソンへようこそ! このイベントは、 Stable Diffusion モデルをあなたの画像でファインチューニングすることで、**パーソナライズするコミュニティイベントです**。そのためには、 [_DreamBooth_](https://arxiv.org/abs/2208.12242) という強力なテクニックを使います。このテクニックを使うと、モデルの出力領域に被験者（例えば、ペットやお気に入りの料理）を埋め込み、プロンプトに _ユニーク識別子_ をつけて合成することができるようになります。
 
 このコンペティションは5つのテーマで構成されており、各テーマでは以下のカテゴリーに属するモデルを募集しています:
 
 * **Animal 🐨:** このテーマを使って、あなたのペットやお気に入りの動物が、アクロポリスでくつろいだり、泳いだり、宇宙を飛んだりする画像を生成してください。
 * **Science 🔬:** このテーマを使って、銀河、タンパク質、または自然科学や医学のあらゆる分野のクールな合成画像を生成してください。
-* **Food 🍔:** このテーマを使って、あなたの好きな料理にStable Diffusionをチューニングしてみてはいかがでしょうか。
+* **Food 🍔:** このテーマを使って、あなたの好きな料理に Stable Diffusion をチューニングしてみてはいかがでしょうか。
 * **Landscape 🏔:** このテーマを使って、お気に入りの山、湖、庭の美しい風景を生成してください。
-* **Wildcard 🔥:** このテーマを使って、好きなカテゴリのStable Diffusionモデルを作ってください。
+* **Wildcard 🔥:** このテーマを使って、好きなカテゴリの Stable Diffusion モデルを作ってください。
 
 **テーマごとに最も気に入った上位3モデルに賞品を贈呈**します。お好きなだけモデルを提出してください!
 
@@ -16,14 +16,14 @@ DreamBoothハッカソンへようこそ! このイベントは、Stable Diffusi
 
 以下の手順で参加してください:
 
-1. [Hugging Face Discordサーバ](https://huggingface.co/join/discord)に参加し、`#dreambooth-hackathon`チャンネルでイベントの最新情報を確認してください。
-2. 以下のリンクをクリックして、[DreamBooth notebook](https://github.com/huggingface/diffusion-models-class/blob/main/hackathon/dreambooth.ipynb)を起動・実行し、モデルを学習させます。各プラットフォームでGPUランタイムを選択し、モデルを高速に学習させるようにしてください。
+1. [Hugging Face Discord サーバ](https://huggingface.co/join/discord)に参加し、 `#dreambooth-hackathon` チャンネルでイベントの最新情報を確認してください。
+2. 以下のリンクをクリックして、 [DreamBooth notebook](https://github.com/huggingface/diffusion-models-class/blob/main/hackathon/dreambooth.ipynb) を起動・実行し、モデルを学習させます。各プラットフォームで GPU ランタイムを選択し、モデルを高速に学習させるようにしてください。
 
 | Notebook                                     | Colab                                                                                                                                                                                               | Kaggle                                                                                                                                                                                                   | Gradient                                                                                                                                                                               | Studio Lab                                                                                                                                                                                                   |
 |:--------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| DreamBoothトレーニング                              | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/huggingface/diffusion-models-class/blob/main/hackathon/dreambooth.ipynb)              | [![Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/huggingface/diffusion-models-class/blob/main/hackathon/dreambooth.ipynb)              | [![Gradient](https://assets.paperspace.io/img/gradient-badge.svg)](https://console.paperspace.com/github/huggingface/diffusion-models-class/blob/main/hackathon/dreambooth.ipynb)              | [![Open In SageMaker Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/huggingface/diffusion-models-class/blob/main/hackathon/dreambooth.ipynb)              |
+| DreamBooth トレーニング                              | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/huggingface/diffusion-models-class/blob/main/hackathon/dreambooth.ipynb)              | [![Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/huggingface/diffusion-models-class/blob/main/hackathon/dreambooth.ipynb)              | [![Gradient](https://assets.paperspace.io/img/gradient-badge.svg)](https://console.paperspace.com/github/huggingface/diffusion-models-class/blob/main/hackathon/dreambooth.ipynb)              | [![Open In SageMaker Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/huggingface/diffusion-models-class/blob/main/hackathon/dreambooth.ipynb)              |
 
-**備考 👋:** DreamBooth Notebookでは、ファインチューニングするStable Diffusionモデルとして[`CompVis/stable-diffusion-v1-4`](https://huggingface.co/CompVis/stable-diffusion-v1-4)のチェックポイントを使用します。ただ、適切なコンポーネントと安全性チェッカー（存在する場合）をロードするようにコードを調整する必要があります。微調整が必要な興味深いモデルには、以下のようなものがあります:
+**備考 👋:** DreamBooth Notebook では、ファインチューニングする Stable Diffusion モデルとして [`CompVis/stable-diffusion-v1-4`](https://huggingface.co/CompVis/stable-diffusion-v1-4) のチェックポイントを使用します。ただ、適切なコンポーネントと安全性チェッカー（存在する場合）をロードするようにコードを調整する必要があります。微調整が必要な興味深いモデルには、以下のようなものがあります:
 
 * [`runwayml/stable-diffusion-v1-5`](https://huggingface.co/runwayml/stable-diffusion-v1-5)
 * [`prompthero/openjourney`](https://huggingface.co/prompthero/openjourney)
@@ -38,7 +38,7 @@ DreamBoothハッカソンへようこそ! このイベントは、Stable Diffusi
 
 モデルはいいね！の数によって評価され、ハッカソンのリーダーボードで自分のモデルの順位を確認することができます:
 
-* [DreamBoothリーダーボード](https://huggingface.co/spaces/dreambooth-hackathon/leaderboard)
+* [DreamBooth リーダーボード](https://huggingface.co/spaces/dreambooth-hackathon/leaderboard)
 
 ## タイムライン
 
