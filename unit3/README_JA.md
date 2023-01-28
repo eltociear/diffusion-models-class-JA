@@ -83,7 +83,7 @@ DreamBooth is a technique for fine-tuning a text-to-image model to 'teach' it a 
 
 'Stable Diffusion Introduction' ノートブックは、 🤗 Diffusers ライブラリを使った stable diffusion の簡単な紹介で、パイプラインを使って画像を生成・修正する基本的な使用例について説明しています。
 
-DreamBooth ハッカソンノート（[ハッカソンフォルダ]（https://github.com/huggingface/diffusion-models-class/tree/main/hackathon）内）には、新しいスタイルやコンセプトをカバーするモデルのカスタムバージョンを作成するために、自分の画像で SD をファインチューニングする方法が紹介されています。
+DreamBooth Hackathon Notebook （[ハッカソンフォルダ](https://github.com/huggingface/diffusion-models-class/tree/main/hackathon)内）には、新しいスタイルやコンセプトをカバーするモデルのカスタムバージョンを作成するために、自分の画像で SD をファインチューニングする方法が紹介されています。
 
 最後に、 'Stable Diffusion Deep Dive' ノートブックとビデオでは、典型的な生成パイプラインの各ステップを分解し、各ステージを変更してさらに創造的な制御を行うための斬新な方法を提案します。
 
