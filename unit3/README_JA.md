@@ -1,4 +1,4 @@
-# ユニット3：Stable Diffusion
+# ユニット3: Stable Diffusion
 
 Hugging Face Diffusion モデルコースのユニット3へようこそ！このユニットでは、Stable Diffusion (SD) と呼ばれる強力な diffusion モデルに出会い、それができることを探ります。
 
