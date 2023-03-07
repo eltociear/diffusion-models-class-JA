@@ -6,12 +6,12 @@ Hugging Face Diffusion モデルコースのユニット4へようこそ! この
 
 ユニットの手順は以下の通りです:
 
-- Make sure you've [signed up for this course](https://huggingface.us17.list-manage.com/subscribe?u=7f57e683fa28b51bfc493d048&id=ef963b4162) so that you can be notified when additional units are added to the course
-- Read through the material below for an overview of the different topics covered in this unit
-- Dive deeper into any specific topics with the linked videos and resources
-- Explore the demo notebooks and then read the 'What Next' section for some project suggestions
+- [このコースに申し込んだ](https://huggingface.us17.list-manage.com/subscribe?u=7f57e683fa28b51bfc493d048&id=ef963b4162)ことを確認し、コースにユニットが追加されたときに通知されるようにします
+- このユニットで扱われるさまざまなトピックの概要については、以下の資料に目を通してください
+- リンク先の動画や資料で、特定のトピックをより深く知ることができます
+- デモノートを見て、 'What Next' セクションを読んで、プロジェクトの提案をしてください
 
-:loudspeaker: Don't forget to join [Discord](https://huggingface.co/join/discord), where you can discuss the material and share what you've made in the `#diffusion-models-class` channel.
+:loudspeaker: [Discord](https://huggingface.co/join/discord) への参加もお忘れなく。ここでは、教材について議論したり、作ったものを `#diffusion-models-class` チャンネルで共有することができます。
 
 ## Table of Contents
 
@@ -160,6 +160,6 @@ We've covered a LOT of different ideas in this unit, many of which deserve much 
 - **DDIM Inversion** shows how a technique called inversion can be used to edit images using existing diffusion models
 - **Diffusion for Audio** introduces the idea of spectrograms and shows a minimal example of fine-tuning an audio diffusion model on a specific genre of music.
 
-## Where Next?
+## 次はどこ？
 
-This is the final unit of this course for now, which means that what comes next is up to you! Remember that you can always ask questions and chat about your projects on the Hugging Face [Discord](https://huggingface.co/join/discord). We look forward to seeing what you create 🤗
+これがこのコースのとりあえずの最終ユニットであり、つまり、次に何が来るかはあなた次第なのです！ Hugging Face [Discord](https://huggingface.co/join/discord) では、いつでも質問やプロジェクトについてのチャットができることを忘れないでください。どんな作品が出来上がるか楽しみです 🤗
