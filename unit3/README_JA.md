@@ -6,9 +6,9 @@ Hugging Face Diffusion モデルコースのユニット3へようこそ！こ�
 
 ユニットの手順は以下の通りです:
 
-- Make sure you've [signed up for this course](https://huggingface.us17.list-manage.com/subscribe?u=7f57e683fa28b51bfc493d048&id=ef963b4162) so that you can be notified when new material is released
-- Read through the material below for an overview of the key ideas of this unit
-- Check out the [_**Stable Diffusion Introduction**_ notebook](#hands-on-notebook) to see SD applied in practice to some common use-cases
+- 新しい教材がリリースされたときに通知を受けることができるように、[このコースにサインアップ](https://huggingface.us17.list-manage.com/subscribe?u=7f57e683fa28b51bfc493d048&id=ef963b4162)していることを確認してください。
+- 以下の資料に目を通し、本ユニットの重要な考え方の概要を理解してください
+- [_**Stable Diffusion Introduction**_ notebook](#hands-on-notebook) では、SD を実際に使用するケースをご紹介しています
 - Use the _**Dreambooth**_ notebook in the [**hackathon** folder](https://github.com/huggingface/diffusion-models-class/tree/main/hackathon) to fine-tune your own custom Stable Diffusion model and share it with the community for a chance to win some prizes and swag
 - (Optional) Check out the [_**Stable Diffusion Deep Dive video**_](https://www.youtube.com/watch?app=desktop&v=0_BBRNYInx8) and the accompanying [_**notebook**_](https://github.com/fastai/diffusion-nbs/blob/master/Stable%20Diffusion%20Deep%20Dive.ipynb) for a deeper exploration of the different components and how they can be adapted for different effects. This material was created for the new FastAI course, ['Stable Diffusion from the Foundations'](https://www.fast.ai/posts/part2-2022.html) - the first few lessons are already available and the rest will be released in the next few months, making this a great supplement to this class for anyone curious about building these kinds of models completely from scratch.
 
