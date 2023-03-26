@@ -13,7 +13,7 @@ Hugging Face Diffusion モデルコースのユニット4へようこそ! この
 
 :loudspeaker: [Discord](https://huggingface.co/join/discord) への参加もお忘れなく。ここでは、教材について議論したり、作ったものを `#diffusion-models-class` チャンネルで共有することができます。
 
-## Table of Contents
+## 目次
 
 - [Unit 4: Going Further with Diffusion Models](#unit-4-going-further-with-diffusion-models)
   - [Start this Unit :rocket:](#start-this-unit-rocket)
@@ -28,7 +28,7 @@ Hugging Face Diffusion モデルコースのユニット4へようこそ! この
   - [Where Next?](#where-next)
 
 
-## Faster Sampling via Distillation
+## ディスティレーションによるサンプリングの高速化
 
 Progressive distillation is a technique for taking an existing diffusion model and using it to train a new version of the model that requires fewer steps for inference. The 'student' model is initialized from the weights of the 'teacher' model. During training, the teacher model performs two sampling steps and the student model tries to match the resulting prediction in a single step. This process can be repeated multiple times, with the previous iteration's student model becoming the teacher for the next stage. The result is a model that can produce decent samples in much fewer steps (typically 4 or 8) than the original teacher model. The core mechanism is illustrated in this diagram from the [paper that introduced the idea](http://arxiv.org/abs/2202.00512):
 
@@ -44,7 +44,7 @@ Key references:
 - [Progressive Distillation For Fast Sampling Of Diffusion Models](http://arxiv.org/abs/2202.00512)
 - [On Distillation Of Guided Diffusion Models](http://arxiv.org/abs/2210.03142)
 
-## Training Improvements
+## トレーニングの改善
 
 There have been several additional tricks developed to improve diffusion model training. In this section we've tried to capture the core ideas from recent papers. There is a constant stream of research coming out with additional improvements, so if you see a paper you feel should be added here please let us know!
 
@@ -94,7 +94,7 @@ The video ['Editing Images with Diffusion Models'](https://www.youtube.com/watch
 The paper [InstructPix2Pix: Learning to Follow Image Editing Instructions](https://arxiv.org/abs/2211.09800) is notable in that it used some of the image editing techniques described above to build a synthetic dataset of image pairs alongside image edit instructions (generated with GPT3.5) to train a new model capable of editing images based on natural language instructions
 
 
-## Video
+## ビデオ
 
 ![image](https://user-images.githubusercontent.com/6575163/213657523-be40178a-4357-410b-89e3-a4cbd8528900.png)
 _Still frames from [sample videos generated with Imagen Video](https://imagen.research.google/video/)_
