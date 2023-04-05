@@ -24,12 +24,12 @@ Stable Diffusion は、強力なテキスト条件付き潜在的拡散モデル
 
 ## Latent Diffusion
 
-画像のサイズが大きくなると、その画像を処理するために必要な計算能力も大きくなります。特に自己アテンションと呼ばれる操作では顕著で、入力数に対して二次関数的に操作量が増えていきます。A 128px square image has 4x as many pixels as a 64px square image, and so requires 16x (i.e. 4<sup>2</sup>) the memory and compute in a self-attention layer. This is a problem for anyone who'd like to generate high-resolution images!
+画像のサイズが大きくなると、その画像を処理するために必要な計算能力も大きくなります。特に自己アテンションと呼ばれる操作では顕著で、入力数に対して二次関数的に操作量が増えていきます。128 px の正方形画像は64 px の正方形画像の4倍の画素数を持つため、自己アテンション層では16倍（つまり4<sup>2</sup>）のメモリと計算が必要です。これは、高解像度の画像を生成したい人にとっての問題になります！
 
 ![latent diffusion diagram](https://github.com/CompVis/latent-diffusion/raw/main/assets/modelfigure.png)<br>
 _Diagram from the [Latent Diffusion paper](http://arxiv.org/abs/2112.10752)_
 
-Latent diffusion helps to mitigate this issue by using a separate model called a Variational Auto-Encoder (VAE) to **compress** images to a smaller spatial dimension. The rationale behind this is that images tend to contain a large amount of redundant information - given enough training data, a VAE can hopefully learn to produce a much smaller representation of an input image and then reconstruct the image based on this small **latent** representation with a high degree of fidelity. The VAE used in SD takes in 3-channel images and produces a 4-channel latent representation with a reduction factor of 8 for each spatial dimension. That is, a 512px square input image will be compressed down to a 4x64x64 latent.
+この問題を軽減するために、 VAE（Variational Auto-Encoder） と呼ばれる別のモデルを用いて、画像をより小さな空間次元に圧縮することができます。十分な学習データがあれば、 VAE は入力画像をより小さく表現することを学習し、この小さな **潜在的** 表現に基づいて画像を忠実に再構成できることが期待されます。 SD で使用されている VAE は、3チャンネルの画像を取り込み、各空間次元の縮小率を8とした4チャンネルの潜像表現を生成します。つまり、512 px の正方形の入力画像は、4 x 64 x 64の潜像に圧縮されることになります。
 
 By applying the diffusion process on these **latent representations** rather than on full-resolution images, we can get many of the benefits that would come from using smaller images (lower memory usage, fewer layers needed in the UNet, faster generation times...) and still decode the result back to a high-resolution image once we're ready to view the final result. This innovation dramatically lowers the cost to train and run these models.
 
