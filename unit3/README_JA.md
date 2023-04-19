@@ -31,14 +31,14 @@ _Diagram from the [Latent Diffusion paper](http://arxiv.org/abs/2112.10752)_
 
 この問題を軽減するために、 VAE（Variational Auto-Encoder） と呼ばれる別のモデルを用いて、画像をより小さな空間次元に圧縮することができます。十分な学習データがあれば、 VAE は入力画像をより小さく表現することを学習し、この小さな **潜在的** 表現に基づいて画像を忠実に再構成できることが期待されます。 SD で使用されている VAE は、3チャンネルの画像を取り込み、各空間次元の縮小率を8とした4チャンネルの潜像表現を生成します。つまり、512 px の正方形の入力画像は、4 x 64 x 64の潜像に圧縮されることになります。
 
-By applying the diffusion process on these **latent representations** rather than on full-resolution images, we can get many of the benefits that would come from using smaller images (lower memory usage, fewer layers needed in the UNet, faster generation times...) and still decode the result back to a high-resolution image once we're ready to view the final result. This innovation dramatically lowers the cost to train and run these models.
+フル解像度の画像ではなく、この **潜在的な表現** に拡散プロセスを適用することで、より小さな画像を使用することで得られる多くの利点（メモリ使用量の削減、UNet に必要なレイヤーの減少、生成時間の短縮など）を得ることができ、最終結果を表示する準備ができたら高解像度画像にデコードして結果を戻すこともできます。この革新的な技術により、モデルの訓練と実行にかかるコストが劇的に削減されます。
 
 ## テキストコンディショニング
 
-In Unit 2 we showed how feeding additional information to the UNet allows us to have some additional control over the types of images generated. We call this conditioning. Given a noisy version of an image, the model is tasked with predicting the denoised version **based on additional clues** such as a class label or, in the case of Stable Diffusion, a text description of the image. At inference time, we can feed in the description of an image we'd like to see and some pure noise as a starting point, and the model does its best to 'denoise' the random input into something that matches the caption. 
+ユニット2では、UNet に追加情報を与えることで、生成される画像の種類をさらにコントロールできることを示しました。これをコンディショニングと呼ぶ。ノイズの多い画像を与えられたモデルは、クラスラベルや安定拡散の場合、画像のテキスト記述などの **追加的な手がかり** に基づいて、ノイズ除去されたバージョンを予測することを課される。推論時には、見たい画像の説明文と、出発点としての純粋なノイズを入力することができ、モデルはランダムな入力をキャプションと一致するものに'ノイズ除去'するために最善を尽くします。 
 
 ![text encoder diagram](text_encoder_noborder.png)<br>
-_Diagram showing the text encoding process which transforms the input prompt into a set of text embeddings (the encoder_hidden_states) which can then be fed in as conditioning to the UNet._
+_入力されたプロンプトをテキスト埋め込み（encoder_hidden_states）のセットに変換し、UNet に条件付けとして送り込むことができるテキストエンコード処理を示す図です。_
 
 For this to work, we need to create a numeric representation of the text that captures relevant information about what it describes. To do this, SD leverages a pre-trained transformer model based on something called CLIP. CLIP's text encoder was designed to process image captions into a form that could be used to compare images and text, so it is well suited to the task of creating useful representations from image descriptions. An input prompt is first tokenized (based on a large vocabulary where each word or sub-word is assigned a specific token) and then fed through the CLIP text encoder, producing a 768-dimensional (in the case of SD 1.X) or 1024-dimensional (SD 2.X) vector for each token. To keep things consistent prompts are always padded/truncated to be 77 tokens long, and so the final representation which we use as conditioning is a tensor of shape 77x1024 per prompt.
 
