@@ -30,13 +30,13 @@ Hugging Face Diffusion モデルコースのユニット4へようこそ! この
 
 ## ディスティレーションによるサンプリングの高速化
 
-Progressive distillation is a technique for taking an existing diffusion model and using it to train a new version of the model that requires fewer steps for inference. The 'student' model is initialized from the weights of the 'teacher' model. During training, the teacher model performs two sampling steps and the student model tries to match the resulting prediction in a single step. This process can be repeated multiple times, with the previous iteration's student model becoming the teacher for the next stage. The result is a model that can produce decent samples in much fewer steps (typically 4 or 8) than the original teacher model. The core mechanism is illustrated in this diagram from the [paper that introduced the idea](http://arxiv.org/abs/2202.00512):
+Progressive Distillation とは、既存の diffusion モデルを用いて、より少ないステップで推論を行う新しいバージョンのモデルを学習させる手法である。'student' モデルは 'teacher' モデルの重みをもとに初期化される。学習中、教師モデルは2回のサンプリングステップを行い、生徒モデルは1回のステップで結果の予測に一致させようとする。このプロセスは複数回繰り返すことができ、前の反復の学生モデルが次のステージの教師となる。その結果、元の教師モデルよりもはるかに少ないステップ（通常4または8）で適切なサンプルを作成することができるモデルができました。コアとなるメカニズムは、[このアイデアを紹介した論文](http://arxiv.org/abs/2202.00512)に掲載されたこの図に示されています:
 
 ![image](https://user-images.githubusercontent.com/6575163/211016659-7dac24a5-37e2-45f9-aba8-0c573937e7fb.png)
 
 _Progressive Distillation illustrated (from the [paper](http://arxiv.org/abs/2202.00512))_
 
-The idea of using an existing model to 'teach' a new model can be extended to create guided models where the classifier-free guidance technique is used by the teacher model and the student model must learn to produce an equivalent output in a single step based on an additional input specifying the targeted guidance scale. This further reduces the number of model evaluations required to produce high-quality samples. [This video](https://www.youtube.com/watch?v=ZXuK6IRJlnk) gives an overview of the approach.
+既存のモデルを使って新しいモデルを「教える」というアイデアは、教師モデルによって分類器を使わないガイダンス技術が使用され、生徒モデルは目標とするガイダンススケールを指定する追加入力に基づいて、1つのステップで同等の出力を生成するように学習しなければならない、ガイド付きモデルを作るために拡張することができます。これにより、高品質なサンプルを作成するために必要なモデル評価回数をさらに減らすことができます。[このビデオ](https://www.youtube.com/watch?v=ZXuK6IRJlnk)では、この手法の概要を紹介しています。
 
 NB: A distilled version of Stable Diffusion is due to be released fairly soon.
 
