@@ -27,7 +27,7 @@ Stable Diffusion は、強力なテキスト条件付き潜在的拡散モデル
 画像のサイズが大きくなると、その画像を処理するために必要な計算能力も大きくなります。特に自己アテンションと呼ばれる操作では顕著で、入力数に対して二次関数的に操作量が増えていきます。128 px の正方形画像は64 px の正方形画像の4倍の画素数を持つため、自己アテンション層では16倍（つまり4<sup>2</sup>）のメモリと計算が必要です。これは、高解像度の画像を生成したい人にとっての問題になります！
 
 ![latent diffusion diagram](https://github.com/CompVis/latent-diffusion/raw/main/assets/modelfigure.png)<br>
-_Diagram from the [Latent Diffusion paper](http://arxiv.org/abs/2112.10752)_
+_[Latent Diffusion 論文](http://arxiv.org/abs/2112.10752)からの図_
 
 この問題を軽減するために、 VAE（Variational Auto-Encoder） と呼ばれる別のモデルを用いて、画像をより小さな空間次元に圧縮することができます。十分な学習データがあれば、 VAE は入力画像をより小さく表現することを学習し、この小さな **潜在的** 表現に基づいて画像を忠実に再構成できることが期待されます。 SD で使用されている VAE は、3チャンネルの画像を取り込み、各空間次元の縮小率を8とした4チャンネルの潜像表現を生成します。つまり、512 px の正方形の入力画像は、4 x 64 x 64の潜像に圧縮されることになります。
 
@@ -40,11 +40,11 @@ _Diagram from the [Latent Diffusion paper](http://arxiv.org/abs/2112.10752)_
 ![text encoder diagram](text_encoder_noborder.png)<br>
 _入力されたプロンプトをテキスト埋め込み（encoder_hidden_states）のセットに変換し、UNet に条件付けとして送り込むことができるテキストエンコード処理を示す図です。_
 
-For this to work, we need to create a numeric representation of the text that captures relevant information about what it describes. To do this, SD leverages a pre-trained transformer model based on something called CLIP. CLIP's text encoder was designed to process image captions into a form that could be used to compare images and text, so it is well suited to the task of creating useful representations from image descriptions. An input prompt is first tokenized (based on a large vocabulary where each word or sub-word is assigned a specific token) and then fed through the CLIP text encoder, producing a 768-dimensional (in the case of SD 1.X) or 1024-dimensional (SD 2.X) vector for each token. To keep things consistent prompts are always padded/truncated to be 77 tokens long, and so the final representation which we use as conditioning is a tensor of shape 77x1024 per prompt.
+これを実現するためには、テキストを数値で表現し、それが記述する内容に関する関連情報を取得する必要があります。これを実現するために、SD は CLIP と呼ばれるものに基づいて事前に訓練された変換モデルを活用しています。CLIP のテキストエンコーダは、画像のキャプションを画像とテキストの比較に使用できる形式に処理するように設計されているため、画像の説明から有用な表現を作成するタスクに適しています。入力プロンプトは、まずトークン化され（各単語やサブワードに特定のトークンが割り当てられる大規模な語彙に基づいて）、次に CLIP テキストエンコーダを通過して、各トークンに対して768 次元（SD 1.Xの場合）または1024 次元（SD 2.X）ベクトルを生成します。一貫性を保つため、プロンプトは常に77 トークンの長さになるようにパディング/トランケートされるため、条件付けとして使用する最終表現は、プロンプトごとに形状 77 x 1024 のテンソルになります。
 
 ![conditioning diagram](sd_unet_color.png)
 
-OK, so how do we actually feed this conditioning information into the UNet for it to use as it makes predictions? The answer is something called cross-attention. Scattered throughout the UNet are cross-attention layers. Each spatial location in the UNet can 'attend' to different tokens in the text conditioning, bringing in relevant information from the prompt. The diagram above shows how this text conditioning (as well as timestep-based conditioning) is fed in at different points. As you can see, at every level the UNet has ample opportunity to make use of this conditioning!
+では、実際にこのコンディショニング情報を UNet に送り込み、UNet が予測を行う際に利用するにはどうすればいいのでしょうか。その答えは、クロスアテンションと呼ばれるものです。UNet にはクロスアテンションレイヤーが散在している。UNet の各空間位置は、テキスト条件付けの異なるトークンに 'attend' して、プロンプトから関連情報を取り込むことができる。上の図は、このテキストコンディショニング（およびタイムステップベースのコンディショニング）が、さまざまなポイントでどのように送り込まれるかを示しています。ご覧のように、どのレベルでも、UNet はこの条件付けを利用する十分な機会があります！
 
 ## Classifier-free ガイダンス
 
