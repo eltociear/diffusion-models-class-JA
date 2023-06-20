@@ -38,7 +38,7 @@ _Progressive Distillation illustrated (from the [paper](http://arxiv.org/abs/220
 
 既存のモデルを使って新しいモデルを「教える」というアイデアは、教師モデルによって分類器を使わないガイダンス技術が使用され、生徒モデルは目標とするガイダンススケールを指定する追加入力に基づいて、1つのステップで同等の出力を生成するように学習しなければならない、ガイド付きモデルを作るために拡張することができます。これにより、高品質なサンプルを作成するために必要なモデル評価回数をさらに減らすことができます。[このビデオ](https://www.youtube.com/watch?v=ZXuK6IRJlnk)では、この手法の概要を紹介しています。
 
-NB: A distilled version of Stable Diffusion is due to be released fairly soon.
+NB: Stable Diffusion の蒸留バージョンは、かなり近いうちにリリースされる予定です。
 
 Key references:
 - [Progressive Distillation For Fast Sampling Of Diffusion Models](http://arxiv.org/abs/2202.00512)
@@ -46,7 +46,7 @@ Key references:
 
 ## トレーニングの改善
 
-There have been several additional tricks developed to improve diffusion model training. In this section we've tried to capture the core ideas from recent papers. There is a constant stream of research coming out with additional improvements, so if you see a paper you feel should be added here please let us know!
+Diffusion モデルのトレーニングを改善するために、いくつかの追加のトリックが開発されています。このセクションでは、最近の論文から核となるアイデアを取り上げることにしました。もし、ここに追加すべきと思われる論文があれば、ぜひ教えてください！
 
 ![image](https://user-images.githubusercontent.com/6575163/211021220-e87ca296-cf15-4262-9359-7aeffeecbaae.png)
 _Figure 2 from the [ERNIE-ViLG 2.0 paper](http://arxiv.org/abs/2210.15257)_
