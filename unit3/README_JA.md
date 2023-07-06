@@ -48,7 +48,7 @@ _入力されたプロンプトをテキスト埋め込み（encoder_hidden_stat
 
 ## Classifier-free ガイダンス
 
-It turns out that even with all of the effort put into making the text conditioning as useful as possible, the model still tends to default to relying mostly on the noisy input image rather than the prompt when making its predictions. In a way, this makes sense - many captions are only loosely related to their associated images and so the model learns not to rely too heavily on the descriptions! However, this is undesirable when it comes time to generate new images - if the model doesn't follow the prompt then we may get images out that don't relate to our description at all.
+テキストコンディショニングを可能な限り有用なものにするためにあらゆる努力が払われたとしても、モデルは予測を行う際に、プロンプトではなく、ノイズの多い入力画像にほとんど依存する傾向があることがわかりました。ある意味、これは理にかなっています。多くのキャプションは関連する画像と大まかな関連しかないため、モデルは説明文に頼りすぎないように学習します！しかし、これは新しい画像を生成するときには望ましくありません。モデルがプロンプトに従わなければ、説明とまったく関係のない画像が生成される可能性があります。
 
 ![CFG scale demo grid](cfg_example_0_1_2_10.jpeg)<br>
 _Images generated from the prompt "An oil painting of a collie in a top hat" with CFG scale 0, 1, 2 and 10 (left to right)_
