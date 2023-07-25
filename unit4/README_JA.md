@@ -15,7 +15,7 @@ Hugging Face Diffusion モデルコースのユニット4へようこそ! この
 
 ## 目次
 
-- [Unit 4: Going Further with Diffusion Models](#unit-4-going-further-with-diffusion-models)
+- [ユニット4: Diffusion をもっと使いこなす](#unit-4-going-further-with-diffusion-models)
   - [Start this Unit :rocket:](#start-this-unit-rocket)
   - [Table of Contents](#table-of-contents)
   - [Faster Sampling via Distillation](#faster-sampling-via-distillation)
@@ -51,8 +51,8 @@ Diffusion モデルのトレーニングを改善するために、いくつか�
 ![image](https://user-images.githubusercontent.com/6575163/211021220-e87ca296-cf15-4262-9359-7aeffeecbaae.png)
 _Figure 2 from the [ERNIE-ViLG 2.0 paper](http://arxiv.org/abs/2210.15257)_
 
-Key training improvements:
-- Tuning the noise schedule, loss weighting and sampling trajectories for more efficient training. An excellent paper exploring some of these design choices is [Elucidating the Design Space of Diffusion-Based Generative Models](http://arxiv.org/abs/2206.00364) by Karras et al.
+トレーニングの主な改善点:
+- より効率的な学習のために、ノイズスケジュール、損失重み付け、サンプリング軌道を調整します。このような設計の選択のいくつかを探る優れた論文に、Karras らによる [Elucidating the Design Space of Diffusion-Based Generative Models](http://arxiv.org/abs/2206.00364) があります。
 - Training on diverse aspect ratios, as described in [this video from the course launch event](https://www.youtube.com/watch?v=g6tIUrMvOec).
 - Cascaded diffusion models, training one model at low resolution and then one or more super-res models. Used in DALLE-2, Imagen and more for high-resolution image generation.
 - Better conditioning, incorporating rich text embeddings ([Imagen](https://arxiv.org/abs/2205.11487) uses a large language model called T5) or multiple types of conditioning ([eDiffi](http://arxiv.org/abs/2211.01324))
@@ -156,9 +156,9 @@ Key references
 | DDIM Inversion                                | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/huggingface/diffusion-models-class/blob/main/unit4/01_ddim_inversion.ipynb)              | [![Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/huggingface/diffusion-models-class/blob/main/unit4/01_ddim_inversion.ipynb)              | [![Gradient](https://assets.paperspace.io/img/gradient-badge.svg)](https://console.paperspace.com/github/huggingface/diffusion-models-class/blob/main/unit4/01_ddim_inversion.ipynb)              | [![Open In SageMaker Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/huggingface/diffusion-models-class/blob/main/unit4/01_ddim_inversion.ipynb)              |
 | Diffusion for Audio                                | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/huggingface/diffusion-models-class/blob/main/unit4/02_diffusion_for_audio.ipynb)              | [![Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/huggingface/diffusion-models-class/blob/main/unit4/02_diffusion_for_audio.ipynb)              | [![Gradient](https://assets.paperspace.io/img/gradient-badge.svg)](https://console.paperspace.com/github/huggingface/diffusion-models-class/blob/main/unit4/02_diffusion_for_audio.ipynb)              | [![Open In SageMaker Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/huggingface/diffusion-models-class/blob/main/unit4/02_diffusion_for_audio.ipynb)              |
 
-We've covered a LOT of different ideas in this unit, many of which deserve much more detailed follow-on lessons in the future. For now, you can two of the many topics via the hands-on notebooks we've prepared.
-- **DDIM Inversion** shows how a technique called inversion can be used to edit images using existing diffusion models
-- **Diffusion for Audio** introduces the idea of spectrograms and shows a minimal example of fine-tuning an audio diffusion model on a specific genre of music.
+このユニットでは、多くの異なるアイデアを取り上げました。その多くは、将来、より詳細なフォローアップ・レッスンに値するものです。今のところ、私たちが用意した実践的なノートを通して、多くのトピックのうちの2つを学ぶことができます。
+- **DDIM インバージョン** では、既存の拡散モデルを使用して画像を編集するために、インバージョンと呼ばれる技術がどのように使用できるかを示している
+- **オーディオのための Diffusion** では、スペクトログラムの考え方を紹介し、特定のジャンルの音楽についてオーディオ拡散モデルを微調整する最小限の例を示す。
 
 ## 次はどこ？
 
