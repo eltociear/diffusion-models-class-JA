@@ -30,17 +30,17 @@ Hugging Face Diffusion モデルコースのユニット4へようこそ! この
 
 ## ディスティレーションによるサンプリングの高速化
 
-Progressive Distillation とは、既存の diffusion モデルを用いて、より少ないステップで推論を行う新しいバージョンのモデルを学習させる手法である。'student' モデルは 'teacher' モデルの重みをもとに初期化される。学習中、教師モデルは2回のサンプリングステップを行い、生徒モデルは1回のステップで結果の予測に一致させようとする。このプロセスは複数回繰り返すことができ、前の反復の学生モデルが次のステージの教師となる。その結果、元の教師モデルよりもはるかに少ないステップ（通常4または8）で適切なサンプルを作成することができるモデルができました。コアとなるメカニズムは、[このアイデアを紹介した論文](http://arxiv.org/abs/2202.00512)に掲載されたこの図に示されています:
+Progressive Distillation とは、既存の diffusion モデルを用いて、より少ないステップで推論を行う新しいバージョンのモデルを学習させる手法である。'student' モデルは 'teacher' モデルの重みをもとに初期化される。学習中、教師モデルは 2 回のサンプリングステップを行い、生徒モデルは1回のステップで結果の予測に一致させようとする。このプロセスは複数回繰り返すことができ、前の反復の学生モデルが次のステージの教師となる。その結果、元の教師モデルよりもはるかに少ないステップ（通常4または8）で適切なサンプルを作成することができるモデルができました。コアとなるメカニズムは、[このアイデアを紹介した論文](http://arxiv.org/abs/2202.00512)に掲載されたこの図に示されています:
 
 ![image](https://user-images.githubusercontent.com/6575163/211016659-7dac24a5-37e2-45f9-aba8-0c573937e7fb.png)
 
-_Progressive Distillation illustrated (from the [paper](http://arxiv.org/abs/2202.00512))_
+_Progressive Distillation の図解 ([論文](http://arxiv.org/abs/2202.00512)より)_
 
 既存のモデルを使って新しいモデルを「教える」というアイデアは、教師モデルによって分類器を使わないガイダンス技術が使用され、生徒モデルは目標とするガイダンススケールを指定する追加入力に基づいて、1つのステップで同等の出力を生成するように学習しなければならない、ガイド付きモデルを作るために拡張することができます。これにより、高品質なサンプルを作成するために必要なモデル評価回数をさらに減らすことができます。[このビデオ](https://www.youtube.com/watch?v=ZXuK6IRJlnk)では、この手法の概要を紹介しています。
 
 NB: Stable Diffusion の蒸留バージョンは、かなり近いうちにリリースされる予定です。
 
-Key references:
+主な参考文献:
 - [Progressive Distillation For Fast Sampling Of Diffusion Models](http://arxiv.org/abs/2202.00512)
 - [On Distillation Of Guided Diffusion Models](http://arxiv.org/abs/2210.03142)
 
@@ -53,7 +53,7 @@ _Figure 2 from the [ERNIE-ViLG 2.0 paper](http://arxiv.org/abs/2210.15257)_
 
 トレーニングの主な改善点:
 - より効率的な学習のために、ノイズスケジュール、損失重み付け、サンプリング軌道を調整します。このような設計の選択のいくつかを探る優れた論文に、Karras らによる [Elucidating the Design Space of Diffusion-Based Generative Models](http://arxiv.org/abs/2206.00364) があります。
-- Training on diverse aspect ratios, as described in [this video from the course launch event](https://www.youtube.com/watch?v=g6tIUrMvOec).
+- [このコース発表イベントのビデオ](https://www.youtube.com/watch?v=g6tIUrMvOec)で説明されているような、多様なアスペクト比に関するトレーニング。
 - Cascaded diffusion models, training one model at low resolution and then one or more super-res models. Used in DALLE-2, Imagen and more for high-resolution image generation.
 - Better conditioning, incorporating rich text embeddings ([Imagen](https://arxiv.org/abs/2205.11487) uses a large language model called T5) or multiple types of conditioning ([eDiffi](http://arxiv.org/abs/2211.01324))
 - 'Knowledge Enhancement' - incorporating pre-trained image captioning and object detection models into the training process to create more informative captions and produce better performance ([ERNIE-ViLG 2.0](http://arxiv.org/abs/2210.15257))
