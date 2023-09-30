@@ -105,11 +105,11 @@ Key references:
 - [Video Diffusion Models](https://video-diffusion.github.io/)
 - [IMAGEN VIDEO: HIGH DEFINITION VIDEO GENERATION WITH DIFFUSION MODELS](https://imagen.research.google/video/paper.pdf)
 
-## Audio
+## オーディオ
 
 ![image](https://user-images.githubusercontent.com/6575163/213657272-a1b54017-216f-453b-9b28-97c6fef21f54.png)
 
-_A spectrogram generated with Riffusion ([image source](https://www.riffusion.com/about))_
+_Riffusion で生成されたスペクトログラム([画像ソース](https://www.riffusion.com/about))_
 
 While there has been some work on generating audio directly using diffusion models (e.g. [DiffWave](https://arxiv.org/abs/2009.09761)) the most successful approach so far has been to convert the audio signal into something called a spectrogram, which effectively 'encodes' the audio as a 2D "image" which can then be used to train the kinds of diffusion models we're used to using for image generation. The resulting generated spectrograms can then be converted into audio using existing methods. This approach is behind the recently-released Riffusion, which fine-tuned Stable Diffusion to generate spectrograms conditioned on text - [try it out here](https://www.riffusion.com/).
 
