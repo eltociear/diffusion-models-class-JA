@@ -6,10 +6,10 @@ Welcome to Unit 2 of the Hugging Face Diffusion Models Course! In this unit, you
 
 Here are the steps for this unit:
 
-- Make sure you've [signed up for this course](https://huggingface.us17.list-manage.com/subscribe?u=7f57e683fa28b51bfc493d048&id=ef963b4162) so that you can be notified when new material is released
-- Read through the material below for an overview of the key ideas of this unit
-- Check out the _**Fine-tuning and Guidance**_ notebook to fine-tune an existing diffusion model on a new dataset using the 🤗 Diffusers library and to modify the sampling procedure using guidance
-- Follow the example in the notebook to share a Gradio demo for your custom model
+- Make sure you've [signed up for this course](https://huggingface.us17.list-manage.com/subscribe?u=7f57e683fa28b51bfc493d048&id=ef963b4162) so that you can be notified when new material is released.
+- Read through the material below for an overview of the key ideas of this unit.
+- Check out the _**Fine-tuning and Guidance**_ notebook to fine-tune an existing diffusion model on a new dataset using the 🤗 Diffusers library and to modify the sampling procedure using guidance.
+- Follow the example in the notebook to share a Gradio demo for your custom model.
 - (Optional) Check out the _**Class-conditioned Diffusion Model Example**_ notebook to see how we can add additional control to the generation process.
 - (Optional) Check out [this video](https://www.youtube.com/watch?v=mY20iKOQ2zw) for an informal run-through of the material in this unit.
 
@@ -53,7 +53,7 @@ There are a number of ways to pass in this conditioning information, such as
 
 At this point, you know enough to get started with the accompanying notebooks! Open them in your platform of choice using the links above. Fine-tuning is quite computationally intensive, so if you're using Kaggle or Google Colab make sure you set the runtime type to 'GPU' for the best results.
 
-The bulk of the material is in _**Fine-tuning and Guidance**_, where we explore these two topics through worked examples. The notebook shows how you can fine-tune an existing model on new data, add guidance, and share the result as a Gradio demo. There is an accompanying script ([finetune_model.py](https://github.com/huggingface/diffusion-models-class/blob/main/unit2/finetune_model.py)) that makes it easy to experiment with different fine-tuning settings, and [an [example space](https://huggingface.co/spaces/johnowhitaker/color-guided-wikiart-diffusion) that you can use as a template for sharing your own demo on 🤗 Spaces. 
+The bulk of the material is in _**Fine-tuning and Guidance**_, where we explore these two topics through worked examples. The notebook shows how you can fine-tune an existing model on new data, add guidance, and share the result as a Gradio demo. There is an accompanying script ([finetune_model.py](https://github.com/huggingface/diffusion-models-class/blob/main/unit2/finetune_model.py)) that makes it easy to experiment with different fine-tuning settings, and an [example space](https://huggingface.co/spaces/johnowhitaker/color-guided-wikiart-diffusion) that you can use as a template for sharing your own demo on 🤗 Spaces. 
 
 In the _**Class-conditioned Diffusion Model Example**_, we show a brief worked example of creating a diffusion model conditioned on class labels using the MNIST dataset. The focus is on demonstrating the core idea as simply as possible: by giving the model extra information about what it is supposed to be denoising, we can later control what kinds of images are generated at inference time.
 
