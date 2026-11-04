@@ -2,7 +2,7 @@
 
 Welcome to Unit 3 of the Hugging Face Diffusion Models Course! In this unit you will meet a powerful diffusion model called Stable Diffusion (SD) and explore what it can do.
 
-## Start this Unit :rocket:
+## Start this Unit 🚀
 
 Here are the steps for this unit:
 
@@ -13,11 +13,11 @@ Here are the steps for this unit:
 - (Optional) Check out the [_**Stable Diffusion Deep Dive video**_](https://www.youtube.com/watch?app=desktop&v=0_BBRNYInx8) and the accompanying [_**notebook**_](https://github.com/fastai/diffusion-nbs/blob/master/Stable%20Diffusion%20Deep%20Dive.ipynb) for a deeper exploration of the different components and how they can be adapted for different effects. This material was created for the new FastAI course, ['Stable Diffusion from the Foundations'](https://www.fast.ai/posts/part2-2022.html) - the whole course has been released, making this a great supplement to this class for anyone curious about building these kinds of models completely from scratch. 
 
 
-:loudspeaker: Don't forget to join the [Discord](https://huggingface.co/join/discord), where you can discuss the material and share what you've made in the `#diffusion-models-class` channel.
+📢 Don't forget to join the [Discord](https://huggingface.co/join/discord), where you can discuss the material and share what you've made in the `#diffusion-models-class` channel.
 
 ## Introduction
 
-![SD example images](sd_demo_images.jpg)<br>
+![SD example images](https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/diffusion-course/sd_demo_images.jpg)<br>
 _Example images generated using Stable Diffusion_
 
 Stable Diffusion is a powerful text-conditioned latent diffusion model. Don't worry, we'll explain those words shortly! Its ability to create amazing images from text descriptions has made it an internet sensation. In this unit, we're going to explore how SD works and see what other tricks it can do.
@@ -50,7 +50,7 @@ OK, so how do we actually feed this conditioning information into the UNet for i
 
 It turns out that even with all of the effort put into making the text conditioning as useful as possible, the model still tends to default to relying mostly on the noisy input image rather than the prompt when making its predictions. In a way, this makes sense - many captions are only loosely related to their associated images and so the model learns not to rely too heavily on the descriptions! However, this is undesirable when it comes time to generate new images - if the model doesn't follow the prompt then we may get images out that don't relate to our description at all.
 
-![CFG scale demo grid](cfg_example_0_1_2_10.jpeg)<br>
+![CFG scale demo grid](https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/diffusion-course/cfg_example_0_1_2_10.jpeg)<br>
 _Images generated from the prompt "An oil painting of a collie in a top hat" with CFG scale 0, 1, 2 and 10 (left to right)_
 
 To fix this, we use a trick called Classifier-Free Guidance (CGF). During training, text conditioning is sometimes kept blank, forcing the model to learn to denoise images with no text information whatsoever (unconditional generation). Then at inference time, we make two separate predictions: one with the text prompt as conditioning and one without. We can then use the difference between these two predictions to create a final combined prediction that pushes **even further** in the direction indicated by the text-conditioned prediction according to some scaling factor (the guidance scale), hopefully resulting in an image that better matches the prompt. The image above shows the outputs for a prompt at different guidance scales - as you can see, higher values result in images that better match the description.
